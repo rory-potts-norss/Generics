@@ -26,15 +26,12 @@ public class Collection<T, U> {
 
     @Override
     public String toString() {
-    // @TODO reduce this method to 1 line
-    List<String> names = new ArrayList<>();
-    for (U resource : resources) {
-        names.add(resource.toString());
-    }
-    return String.format("%s's %s: %s", this.player.toString(), this.name, String.join(", ", names));
+        List<String> names = new ArrayList<>();
+        resources.stream().forEach(r -> names.add(r.toString()));
+        return String.format("%s's %s: %s", this.player.toString(), this.name, String.join(", ", names));
     }
 
-    
+
 
 
 }
